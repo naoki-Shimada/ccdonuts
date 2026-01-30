@@ -1,0 +1,826 @@
+
+body {
+    margin: 0;
+    font-family: "Noto Sans JP", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ヘッダー */
+.MainHeader {
+    width: 100%;
+}
+
+.HeaderTop {
+    background-color: #f2e9e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 80px;
+}
+
+.NavToggle {
+    width: 40px;
+    cursor: pointer;
+}
+.NavToggle span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: #825a43;
+    margin-bottom: 7px;
+}
+
+.Logo img {
+    position: relative;
+}
+
+.UserActions {
+    display: flex;
+    gap: 20px;
+    color: #825a43;
+    font-size: 12px;
+    text-align: center;
+}
+
+.ActionItem {
+    display: grid;
+}
+
+.HeaderBottom {
+    background-color: #b091a6; /* 検索ボックス背景色 */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SearchContainer {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #825a43;
+    width: 300px;
+    height: 35px;
+}
+
+.SearchButton {
+    background-color: #d9d9d9;
+    border: none;
+    border-right: 1px solid #825a43; /* 右側にのみ境界線を入れる */
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SearchIcon {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #825a43;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.SearchIcon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 6px;
+    background-color: #825a43;
+    transform: rotate(-45deg);
+    bottom: -5px;
+    right: -3px;
+}
+
+.SearchInput {
+    border: none;
+    flex: 1; /* 残りの幅をすべて使う */
+    width: 100%;
+    outline: none;
+    padding: 0 10px;
+}
+
+/* トップページ */
+.HeroSection {
+    width: 100%;
+}
+
+.HeroSection img {
+    width: 100%;      /* 親要素の幅いっぱいに広げる */
+    height: auto;     /* 比率を維持して高さを自動調整 */
+    display: block;   /* 下部の隙間を排除 */
+    object-fit: cover; /* 枠に合わせて調整 */
+}
+
+.DonutsContainer {
+    max-width: 800px; /* 必要に応じて調整 */
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 上下の間隔 */
+    padding: 0 20px;
+}
+
+.TopRaw {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* 左右の間隔 */
+    width: 100%;
+}
+
+/* 各ボックスの基点設定 */
+.ContentBox, .ContentBoxBanner {
+    position: relative; /* 子要素の絶対配置の基準にする */
+    overflow: hidden;
+    width: 100%;
+}
+
+.ContentBox img, .ContentBoxBanner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.Hero-Container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/PCBackgroundBanner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* テキスト各要素のスタイル */
+.Title-en {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+}
+
+.Title-jp {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.Tagline-en {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.Tagline-jp {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* セクション部分の全体幅 */
+.RankingSection,
+.ProductSection {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* タイトル部分 */
+.ProductTitle {
+    font-size: 24px;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.ProductSubTitle {
+    margin: 50px;
+}
+
+.ProductTitle::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #f1c40f; /* アンダーライン(黄) */
+    margin-top: 8px;
+}
+
+.RankingContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px 20px;
+    margin-bottom: 80px;
+}
+
+.ProductContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px 20px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.ProductItem {
+    flex: 0 1 calc(33.333% - 20px); 
+    /* flex: 0 指定した幅（33.333%など）を厳守し、デザインが崩れるのを防ぐ。 */
+    /* flex: 1 どうしても入り切らない場合に最小限の縮小を許可し、レスポンシブ対応させるため */
+    /* calc(33.333%):親要素の幅を100%にした時の、3分の1 */
+    /* -20px: 要素間の隙間(余白)を確保するための調整(gap: 20px) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 子要素を水平方向の中央に寄せる */
+}
+
+.ProductItem img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* 正方形に保つ */
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* ProductItem内のformが余計な幅や余白を持たないようにする */
+.ProductItem form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
+    width: 100%;
+}
+
+/* 順位バッジ */
+.RankBadge {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Rank1 { background-color: #ffce44; } /* 金 */
+.Rank2 { background-color: #ccc; } /* 銀 */
+.Rank3 { background-color: #d3782d;} /* 銅 */
+.RankOther { background-color: #e8c8ce;} /* 4位以降の薄ピンク */
+
+/* テキスト装飾 */
+.ItemName {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+.ItemPrice {
+    color: #c0392b;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* カートボタン */
+.CartButton {
+    background-color: #825a43;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.CartButton:hover {
+    opacity: 0.8;
+}
+
+/* ページ共通(パンくずリスト) */
+.BreadList {
+    margin: auto 40px;
+    font-size: 14px;
+}
+
+.BreadListBorder {
+    border-bottom: 1px solid #7F5539;
+}
+
+/* 商品詳細ページ */
+/* 全体のコンテナ */
+.DetailContainer {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto;
+    gap: 40px;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* 左側:画像エリア */
+.ProductImageBox {
+    flex: 1;
+}
+
+.ProductImageBox img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 右側: 情報エリア */
+.ProductInfoBox {
+    flex: 1;
+}
+
+.ProductName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7F5539;
+    margin-bottom: 10px;
+}
+
+.Divider {
+    border: none;
+    border-top: 1px solid #D9D9D9;
+    margin-bottom: 20px;
+}
+
+.Description {
+    line-height: 1.8;
+    color: #7F5539;
+    margin-bottom: 30px;
+}
+
+.Price {
+    color: #BF0000;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 購入アクションエリア */
+.ActionArea {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.QuantityInput {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+}
+
+.FavoriteButton {
+    background: none;
+    color: #BF0000;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* カートページ */
+/* カートページ全体のコンテナ */
+.CartPageContainer {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* 注文小計エリア */
+.SummaryBox {
+    border: 2px solid #FFD233;
+    padding: 30px;
+    margin-bottom: 40px;
+    background-color: #fff;
+}
+
+.SummaryTotal {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.TotalPrice {
+    color: #BF0000;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.CheckoutButton {
+    display: inline-block;
+    background-color: #BF0000;
+    color: #fff;
+    padding: 10px 60px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* カート内アイテム一覧 */
+.CartItem {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.CartItemImage {
+    flex: 0 0 250px;
+}
+
+.CartItemImage img {
+    width: 100%;
+    height: auto;
+}
+
+.CartItemInfo {
+    flex: 1;
+}
+
+.CartItemName {
+    font-size: 1.3rem;
+    color: #7F5539;
+    margin-bottom: 5px;
+}
+
+.ItemDivider {
+    border: none;
+    border-top: 1px solid #D9D9D9;
+    margin-bottom: 20px;
+}
+
+.ItemDetailRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ItemPrice {
+    color: #BF0000;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.CartQuantityInput {
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+}
+
+.ItemActionRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.RecalculateButton {
+    background-color: #D9D9D9;
+    border: none;
+    padding: 8px 30px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.DeleteLink {
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+/* 買い物を続けるボタン */
+.ContinueShoppingArea {
+    margin-top: 50px;
+}
+
+.ContinueButton {
+    display: inline-block;
+    background-color: #7F5539;
+    color: #fff;
+    padding: 12px 80px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* フッター */
+.Footer {
+    background-color: #f2e4d8;
+    color: #7F5539;
+    padding-top: 2px;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.FooterContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ナビゲーション */
+.FooterNav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
+
+.FooterNav li {
+    border-left: 1px solid #7F5539; /* 左側の仕切り線 */
+    padding: 10px;  
+}
+
+.FooterNav a {
+    text-decoration: none;
+    color: #7F5539;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ロゴ */
+.FooterLogo {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.FooterLogo img {
+    max-width: 150px;
+}
+
+/* SNSアイコン */
+.FooterSns {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.FooterSns img {
+    width: 32px;
+    height: auto;
+}
+
+.FooterCopyright {
+    border-top: 1px solid #7F5539;
+    background-color: #e8d8ca;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.FooterCopyright p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* レスポンシブ対応(768px 480px) */
+@media (max-width: 768px) {
+
+    .HeaderTop {
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    .Logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Logo img {
+        height: 60px;
+        width: auto;
+    }
+
+    .UserActions {
+        gap: 15px;
+    }
+
+    .ActionItem img {
+        width: 24px;
+        margin: 0 auto;
+    }
+
+    .HeaderBottom {
+        padding: 10px 20px 20px;
+        justify-content: center;
+    }
+
+    .SearchContainer {
+        width: 100%;
+        max-width: none;
+    }
+
+    .HeroSection img {
+        /* 画面の高さの60%程度に収まるように制限 */
+        max-height: 60vh;
+        object-position: center; /* 中央を基準に表示 */
+    }
+
+    .ProductItem {
+        flex: 0 1 calc(50% - 10px); /* タブレットでは2列 */
+    }
+
+    /* 商品詳細ページ */
+    .DetailContainer {
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px auto;
+    }
+
+    .ProductImageBox, .ProductInfoBox {
+        width: 100%;
+    }
+
+    .ProductName {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .Price {
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
+
+    /* 購入エリアのレイアウト調整 */
+    .ActionArea {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .InputGroup {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .QuantityInput {
+        width: 60px;
+        height: 45px;
+    }
+
+    .CartButton.detail-btn {
+        width: auto;
+        flex: 1; /* 余白を埋める */
+        padding: 12px 20px;
+        background-color: #825a43;
+        white-space: nowrap;
+    }
+
+    /* カートページ */
+    /* カートページ全体のコンテナ */
+    .CartPageContainer {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    /* 注文小計エリア（黄色枠）の調整 */
+    .SummaryBox {
+        padding: 20px 15px;
+        margin-bottom: 30px;
+    }
+
+    .CheckoutButton {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 0;
+    }
+
+    /* カート商品一覧の縦並び化 */
+    .CartItem {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+    }
+
+    .CartItemImage {
+        flex: 0 0 auto;
+        width: 100%; /* 画像を全幅に */
+        max-width: 300px;
+    }
+
+    .CartItemInfo {
+        width: 100%;
+    }
+
+    .ItemName {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    /* 価格と数量の並びをスマホ用に最適化 */
+    .ItemDetailRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* 再計算・削除リンクの配置 */
+    .ItemActionRow {
+        flex-direction: row; /* 横に並べる */
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .RecalculateButton {
+        padding: 10px 25px;
+    }
+
+    /* 買い物を続けるボタン */
+    .ContinueButton {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 0;
+    }
+
+    .FooterContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px;
+        text-align: left;
+    }
+
+    /* ナビゲーションを縦並びにして左に寄せる */
+    .FooterNav ul{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .FooterNav li {
+        padding: 0 0 0 15px;
+        border-left: 2px solid #825a43;
+    }
+
+    /* SNSアイコンを左寄せ */
+    .FooterSns{
+        justify-content: flex-start;
+        position: relative;
+        bottom: 90px;
+        width: 100%;
+    }
+
+    .FooterLogo {
+        align-self: flex-end; /* ロゴだけ左側に寄せる */
+        margin: 0 0 20px 0;
+        position: relative;
+        top: 80px;
+    }
+
+    .FooterLogo img {
+        max-width: 120px;
+    }
+
+    /* コピーライトは中央のまま */
+    .FooterCopyright {
+        width: 100%;
+        justify-content: center;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+
+    .HeroSection img {
+        max-height: 50%;
+        object-fit: cover;
+    }
+
+    .HeroSection p {
+        font-size: 14px; /* 「ようこそ様」のテキストサイズ微調整 */
+        margin: 10px 0;
+    }
+
+    .ProductItem {
+        flex: 0 1 100%; /* スマホでは1列 */
+    }
+}
